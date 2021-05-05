@@ -4,7 +4,7 @@ campaigns:
 common:
   host: <%= ENV.fetch('COMMON_HOST') { 'common:50051' } %>
 
-leads:
+contacts:
   host: <%= ENV.fetch('CONTACTS_HOST') { 'contacts:50051' } %>
 
 organizations:
