@@ -1,0 +1,14 @@
+id,is_usable,name,order
+1,true,Cold Call,1
+2,true,Referral,2
+3,true,Word of mouth,3
+4,true,Web Site,4
+5,true,Trade Show,5
+6,true,Conference,6
+7,true,Direct Mail,7
+8,true,Public Relations,8
+9,true,Partner,9
+10,true,Employee,10
+11,true,Self Generated,11
+12,true,Existing Customer,12
+13,true,Facebook,13

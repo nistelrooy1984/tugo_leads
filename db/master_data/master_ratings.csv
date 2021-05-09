@@ -1,0 +1,6 @@
+id,is_usable,name,order
+1,true,Acquired,1
+2,true,Active,2
+3,true,Market Failed,3
+4,true,Project Cancelled,4
+5,true,Shutdown,5

@@ -24,21 +24,13 @@ stop:
 	docker-compose stop
 
 db-migrate-up:
-# For container is running on Linux(Ubuntu, CentOS)
-# 	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" up
-# 	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" up
-# For container is running on Windows or MacOS
-	scripts/db_migrate "postgres://host.docker.internal:5620/app_development?sslmode=disable&user=postgres" up
-	scripts/db_migrate "postgres://host.docker.internal:5620/app_test?sslmode=disable&user=postgres" up
+	scripts/db_migrate "postgres://localhost:5610/app_development?sslmode=disable&user=postgres" up
+	scripts/db_migrate "postgres://localhost:5610/app_test?sslmode=disable&user=postgres" up
 	docker-compose run --rm app ./bin/rails db:environment:set RAILS_ENV=test
 
 db-migrate-down:
-# For container is running on Linux(Ubuntu, CentOS)
-# 	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" down
-# 	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" down
-# For container is running on Windows or MacOS
-	scripts/db_migrate "postgres://host.docker.internal:5620/app_development?sslmode=disable&user=postgres" down
-	scripts/db_migrate "postgres://host.docker.internal:5620/app_test?sslmode=disable&user=postgres" down
+	scripts/db_migrate "postgres://localhost:5610/app_development?sslmode=disable&user=postgres" down
+	scripts/db_migrate "postgres://localhost:5610/app_test?sslmode=disable&user=postgres" down
 
 db-drop-create:
 	docker-compose run --rm app ./bin/rails db:environment:set RAILS_ENV=development
@@ -67,8 +59,11 @@ update-pb:
 attach:
 	docker container attach $(docker-compose ps -q | head -n 1)
 
+seed_fu:
+	docker-compose run --rm app bin/rails db:seed_fu
+
 bash:
 	docker-compose exec app /bin/bash
 
 usage:
-	@echo usage: [build, db-create, up, up-bridge, down, stop, db-migrate-up, db-migrate-down, db-drop-create, reset, bundle, bundle-update, console, rubocop-fix, rspec, update-pb, attach, bash]
+	@echo usage: [build, db-create, up, up-bridge, down, stop, db-migrate-up, db-migrate-down, db-drop-create, reset, bundle, bundle-update, console, rubocop-fix, rspec, update-pb, attach, seed_fu, bash]

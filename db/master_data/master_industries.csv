@@ -1,0 +1,32 @@
+id,is_usable,name,order
+1,true,Government,1
+2,true,Other,2
+3,true,Utilities,3
+4,true,Transportation,4
+5,true,Telecommunications,5
+6,true,Technology,6
+7,true,Shipping,7
+8,true,Retail,8
+9,true,Recreation,9
+10,true,Not For Profit,10
+11,true,Media,11
+12,true,Manufacturing,12
+13,true,Machinery,13
+14,true,Insurance,14
+15,true,Hospitality,15
+16,true,Healthcare,16
+17,true,Apparel,17
+18,true,Food & Beverage,18
+19,true,Finance,19
+20,true,Environmental,20
+21,true,Entertainment,21
+22,true,Engineering,22
+23,true,Energy,23
+24,true,Electronics,24
+25,true,Education,25
+26,true,Consulting,26
+27,true,Construction,27
+28,true,Communications,28
+29,true,Chemicals,29
+30,true,Biotechnology,30
+31,true,Banking,31
