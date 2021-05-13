@@ -23,7 +23,7 @@ module Leads
 
     def initialize(params)
       super(
-        id: params.lead.id&.value.positive? ? params.lead.id&.value : nil,
+        id: params.lead.id&.value,
         first_name: params.lead.first_name&.value,
         last_name: params.lead.last_name&.value,
         phone: params.lead.phone&.value,
