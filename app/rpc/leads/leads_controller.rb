@@ -20,6 +20,15 @@ module Leads
       presenter.generate_response
     end
 
+    def get_leads_by_owner_id
+      request_params = Leads::GetLeadsByOwnerIdRequestParams.new(request.message)
+      request_params.validate!
+      service = Leads::GetLeadsByOwnerIdService.new(request_params, nil)
+      service.run!
+      presenter = Leads::LeadsPresenter.new(service.result)
+      presenter.generate_response
+    end
+
     def upsert_lead
       request_params = Leads::UpsertLeadRequestParams.new(request.message)
       request_params.validate!
