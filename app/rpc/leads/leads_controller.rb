@@ -51,5 +51,12 @@ module Leads
       presenter = Leads::UpsertLeadsPresenter.new(service.results)
       presenter.generate_response
     end
+
+    def get_all_master
+      service = Leads::GetAllMasterService.new(nil)
+      service.run!
+      presenter = Leads::GetAllMasterPresenter.new(service.results)
+      presenter.generate_response
+    end
   end
 end
