@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Leads
   class SearchLeadsRequestParams < TugoCommon::RequestParamsBase
     attribute :first_name, :string

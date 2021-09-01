@@ -61,7 +61,7 @@ module Leads
       request_params.validate!
       service = Leads::SearchLeadsService.new(request_params, auth_header, jwt)
       service.run!
-      presenter = Leads::SearchLeadsPresenter.new(service.results)
+      presenter = Leads::LeadsPresenter.new(service.results)
       presenter.generate_response
     end
   end

@@ -36,10 +36,10 @@ class Lead < ApplicationRecord
   belongs_to :master_industry, class_name: 'Master::Industry', optional: true
   belongs_to :master_rating, class_name: 'Master::Rating', optional: true
 
-  scope :where_first_name, ->(first_name) { where("first_name ILIKE ?", "%#{first_name}%") if first_name.present? }
-  scope :where_last_name, ->(last_name) { where("last_name ILIKE ?", "%#{last_name}%") if last_name.present? }
-  scope :where_phone, ->(phone) { where("phone ILIKE ?", "%#{phone}%") if phone.present? }
-  scope :where_email, ->(email) { where("email ILIKE ?", "%#{email}%") if email.present? }
+  scope :where_first_name, ->(first_name) { where('first_name ILIKE ?', "%#{first_name}%") if first_name.present? }
+  scope :where_last_name, ->(last_name) { where('last_name ILIKE ?', "%#{last_name}%") if last_name.present? }
+  scope :where_phone, ->(phone) { where('phone ILIKE ?', "%#{phone}%") if phone.present? }
+  scope :where_email, ->(email) { where('email ILIKE ?', "%#{email}%") if email.present? }
   scope :where_owner_id, ->(owner_id) { where(owner_id: owner_id) if owner_id.present? }
   scope :where_by_subordinate_users, ->(user_ids) { where(owner_id: user_ids) if user_ids.present? }
 end
