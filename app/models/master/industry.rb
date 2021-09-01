@@ -15,7 +15,5 @@
 module Master
   class Industry < ApplicationMasterRecord
     self.table_name = 'master_industries'
-
-    has_many :leads, foreign_key: 'master_industry_id'
   end
 end

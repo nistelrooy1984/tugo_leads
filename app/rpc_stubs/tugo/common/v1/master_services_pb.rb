@@ -9,7 +9,6 @@ module Tugo
     module V1
       module MasterService
         class Service
-
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
@@ -19,7 +18,8 @@ module Tugo
           # --
           # cmn_00011 Get Countries and Provinces and Districts
           # --
-          rpc :GetCountriesProvincesDistricts, ::Google::Protobuf::Empty, ::Tugo::Common::V1::CountriesProvincesDistrictsResponse
+          rpc :GetCountriesProvincesDistricts, ::Google::Protobuf::Empty,
+              ::Tugo::Common::V1::CountriesProvincesDistrictsResponse
           # --
           # cmn_00012 Get Wards By District ID
           # --

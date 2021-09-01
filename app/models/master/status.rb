@@ -15,7 +15,5 @@
 module Master
   class Status < ApplicationMasterRecord
     self.table_name = 'master_statuses'
-
-    has_many :leads, foreign_key: 'master_status_id'
   end
 end
