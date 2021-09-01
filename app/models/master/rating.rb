@@ -15,7 +15,5 @@
 module Master
   class Rating < ApplicationMasterRecord
     self.table_name = 'master_ratings'
-
-    has_many :leads, foreign_key: 'master_rating_id'
   end
 end

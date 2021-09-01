@@ -15,7 +15,5 @@
 module Master
   class LeadSource < ApplicationMasterRecord
     self.table_name = 'master_lead_sources'
-
-    has_many :leads, foreign_key: 'master_lead_source_id'
   end
 end

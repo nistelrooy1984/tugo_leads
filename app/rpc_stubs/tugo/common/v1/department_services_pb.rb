@@ -9,7 +9,6 @@ module Tugo
     module V1
       module DepartmentService
         class Service
-
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
@@ -27,7 +26,8 @@ module Tugo
           # --
           # cmn_00006 Upsert Department
           # --
-          rpc :UpsertDepartment, ::Tugo::Common::V1::UpsertDepartmentRequest, ::Tugo::Common::V1::UpsertDepartmentResponse
+          rpc :UpsertDepartment, ::Tugo::Common::V1::UpsertDepartmentRequest,
+              ::Tugo::Common::V1::UpsertDepartmentResponse
         end
 
         Stub = Service.rpc_stub_class
