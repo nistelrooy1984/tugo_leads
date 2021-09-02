@@ -11,7 +11,7 @@ module Leads
     def get_lead_by_id
       request_params = Leads::GetLeadByIdRequestParams.new(request.message)
       request_params.validate!
-      service = Leads::GetLeadByIdService.new(request_params, nil)
+      service = Leads::GetLeadByIdService.new(request_params, auth_header, jwt)
       service.run!
       presenter = Leads::LeadPresenter.new(service.result)
       presenter.generate_response
@@ -21,7 +21,7 @@ module Leads
     def get_leads_by_owner_id
       request_params = Leads::GetLeadsByOwnerIdRequestParams.new(request.message)
       request_params.validate!
-      service = Leads::GetLeadsByOwnerIdService.new(request_params, nil)
+      service = Leads::GetLeadsByOwnerIdService.new(request_params, auth_header, jwt)
       service.run!
       presenter = Leads::LeadsPresenter.new(service.result)
       presenter.generate_response
@@ -29,7 +29,7 @@ module Leads
 
     # led_00003 Get Leads
     def get_leads
-      service = Leads::GetLeadsService.new(nil)
+      service = Leads::GetLeadsService.new(auth_header, jwt)
       service.run!
       presenter = Leads::LeadsPresenter.new(service.results)
       presenter.generate_response
