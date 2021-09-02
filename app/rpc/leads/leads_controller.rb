@@ -4,6 +4,9 @@ module Leads
   class LeadsController < ::Gruf::Controllers::Base
     bind ::Tugo::Leads::V1::LeadService::Service
 
+    include TugoCommon::RequestHandler::AuthGrpcHeaderHandler
+    include TugoCommon::RequestHandler::JwtHandler
+
     # led_00001 Get Lead By Id
     def get_lead_by_id
       request_params = Leads::GetLeadByIdRequestParams.new(request.message)
@@ -49,6 +52,16 @@ module Leads
       service = Leads::UpsertLeadsService.new(request_params, nil)
       service.run!
       presenter = Leads::UpsertLeadsPresenter.new(service.results)
+      presenter.generate_response
+    end
+
+    # led_00006 Search Leads
+    def search_leads
+      request_params = Leads::SearchLeadsRequestParams.new(request.message)
+      request_params.validate!
+      service = Leads::SearchLeadsService.new(request_params, auth_header, jwt)
+      service.run!
+      presenter = Leads::LeadsPresenter.new(service.results)
       presenter.generate_response
     end
   end
