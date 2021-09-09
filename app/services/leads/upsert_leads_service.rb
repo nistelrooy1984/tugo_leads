@@ -21,7 +21,6 @@ module Leads
         lead.master_lead_source_id = rec.master_lead_source_id
         lead.master_industry_id = rec.master_industry_id
         lead.master_rating_id = rec.master_rating_id
-        lead.address = rec.address
         lead.master_ward_id = rec.master_ward_id
         lead.master_district_id = rec.master_district_id
         lead.master_province_id = rec.master_province_id
@@ -30,6 +29,10 @@ module Leads
         lead.creator_id = rec.creator_id
         lead.owner_id = rec.owner_id
         lead.modified_by_id = rec.modified_by_id
+        lead.salutation = rec.salutation
+        lead.other_phone = rec.other_phone
+        lead.street = rec.street
+        lead.delete_flag = rec.delete_flag
 
         lead.save
         arr << lead
