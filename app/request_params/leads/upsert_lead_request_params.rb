@@ -11,7 +11,6 @@ module Leads
     attribute :master_lead_source_id, :integer
     attribute :master_industry_id, :integer
     attribute :master_rating_id, :integer
-    attribute :address, :string
     attribute :master_ward_id, :integer
     attribute :master_district_id, :integer
     attribute :master_province_id, :integer
@@ -20,6 +19,10 @@ module Leads
     attribute :creator_id, :integer
     attribute :owner_id, :integer
     attribute :modified_by_id, :integer
+    attribute :salutation, :string
+    attribute :other_phone, :string
+    attribute :street, :string
+    attribute :delete_flag, :integer
 
     def initialize(params)
       super(
@@ -32,7 +35,6 @@ module Leads
         master_lead_source_id: params.lead.master_lead_source_id&.value,
         master_industry_id: params.lead.master_industry_id&.value,
         master_rating_id: params.lead.master_rating_id&.value,
-        address: params.lead.address&.value,
         master_ward_id: params.lead.master_ward_id&.value,
         master_district_id: params.lead.master_district_id&.value,
         master_province_id: params.lead.master_province_id&.value,
@@ -40,7 +42,11 @@ module Leads
         description: params.lead.description&.value,
         creator_id: params.lead.creator_id&.value,
         owner_id: params.lead.owner_id&.value,
-        modified_by_id: params.lead.modified_by_id&.value
+        modified_by_id: params.lead.modified_by_id&.value,
+        salutation: params.lead.salutation&.value,
+        other_phone: params.lead.other_phone&.value,
+        street: params.lead.street&.value,
+        delete_flag: params.lead.delete_flag&.value,
       )
     end
   end

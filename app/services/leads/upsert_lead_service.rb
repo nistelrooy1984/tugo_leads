@@ -20,7 +20,6 @@ module Leads
       lead.master_lead_source_id = @request_params.master_lead_source_id
       lead.master_industry_id = @request_params.master_industry_id
       lead.master_rating_id = @request_params.master_rating_id
-      lead.address = @request_params.address
       lead.master_ward_id = @request_params.master_ward_id
       lead.master_district_id = @request_params.master_district_id
       lead.master_province_id = @request_params.master_province_id
@@ -29,6 +28,11 @@ module Leads
       lead.creator_id = @request_params.creator_id
       lead.owner_id = @request_params.owner_id
       lead.modified_by_id = @request_params.modified_by_id
+      lead.salutation = @request_params.salutation
+      lead.other_phone = @request_params.other_phone
+      lead.street = @request_params.street
+      lead.delete_flag = @request_params.delete_flag
+      
       lead.save
       @result = lead
     end
