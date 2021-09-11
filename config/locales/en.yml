@@ -35,3 +35,4 @@ en:
     messages:
       lead:
         record_not_found: Can't find by lead.
+        do_not_access: You do not have access
