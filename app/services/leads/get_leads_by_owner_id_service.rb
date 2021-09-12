@@ -15,21 +15,17 @@ module Leads
     def run!
       if @jwt['params']['is_admin']
         @result = Lead.where(owner_id: @request_params.owner_id)
-        
+
         raise ActiveRecord::RecordNotFound, I18n.t('errors.messages.lead.record_not_found') if @result.blank?
       else
         is_exist = Lead.where(owner_id: @request_params.owner_id)
 
         @result = Lead.where_by_subordinate_users(get_subordinate_user_ids)
                       .where(owner_id: @request_params.owner_id)
-        
-        if is_exist.present? && @result.blank?
-          raise ActiveRecord::RecordNotFound, I18n.t('errors.messages.lead.do_not_access')
-        end
 
-        if @result.blank?
-          raise ActiveRecord::RecordNotFound, I18n.t('errors.messages.lead.record_not_found')
-        end
+        raise ActiveRecord::RecordNotFound, I18n.t('errors.messages.lead.do_not_access') if is_exist.present? && @result.blank?
+
+        raise ActiveRecord::RecordNotFound, I18n.t('errors.messages.lead.record_not_found') if @result.blank?
       end
     end
 

@@ -32,7 +32,7 @@ module Leads
       lead.other_phone = @request_params.other_phone
       lead.street = @request_params.street
       lead.delete_flag = @request_params.delete_flag
-      
+
       lead.save
       @result = lead
     end
